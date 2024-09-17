@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tonto Detector</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="square">
+            <form>
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" name="nome"><br><br>
+                <label for="data-de-nascimento">Data de Nascimento:</label>
+                <input type="date" id="data-de-nascimento" name="data-de-nascimento"><br><br>
+                <label for="cidade">Cidade:</label>
+                <input type="text" id="cidade" name="cidade"><br><br>
+            </form>
+            <button class="check-button" id="check-button">Verificar</button>
+            <div class="result"></div>
+        </div>
+    </div>
+
+    <script>
+        const checkButton = document.getElementById('check-button');
+        const resultDiv = document.getElementById('result');
+        const nomeInput = document.getElementById('nome');
+
+        checkButton.addEventListener('click', () => {
+            const nome = nomeInput.value.trim();
+            if (nome.includes('Gabriel')) {
+                // Animation and dramatic effect
+                resultDiv.innerHTML = '';
+                resultDiv.classList.add('loading');
+                setTimeout(() => {
+                    resultDiv.classList.remove('loading');
+                    resultDiv.innerHTML = 'Você é tonto!';
+                }, 2000);
+            } else {
+                resultDiv.innerHTML = 'Não é tonto!';
+            }
+        });
+    </script>
+</body>
+</html>
